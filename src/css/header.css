@@ -1,0 +1,16 @@
+.add-btn{
+    height: 40px;
+    width: 70px;
+    background: #004080;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+}
+input[type="text"]{
+    width: 250px;
+    height: 30px;
+    border: none;
+    background:  aliceblue;
+    border-radius: 5px;
+
+}

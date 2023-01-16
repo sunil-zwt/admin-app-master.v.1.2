@@ -1,0 +1,122 @@
+h6{
+  font-size: 20px;
+  font-weight: 400;
+}
+.product{
+    display: flex;
+    align-items: center;
+  gap: 5rem;
+  font-size: 22px;
+}
+.card-img{
+    max-width: 100%;
+   object-fit: contain;
+   height: 20%;
+   border-radius: 8px;
+   cursor: pointer;
+   height: 40px;
+   width: 40px;
+   
+  
+}
+/* .card-img:hover{
+    box-shadow: 21px 0px 84px 21px rgba(0,0,0,0.1);
+} */
+
+.product-container{
+   margin: 0;
+   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+    
+}
+/* .card{
+    width: 350px;
+    background:	 #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 19px 20px 13px -3px rgba(0,0,0,0.1);
+} */
+
+td {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+   
+  }
+  th {
+    /* border: 1px solid #ddd; */
+    background-color: #004080;
+    color: white;
+    /* border-radius: 5px; */
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+  }
+  tr:nth-child(even) {
+    background-color:   aliceblue;
+  }
+  tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  tr{
+    font-size: 16px;
+  }
+
+
+
+
+/* pagination css */
+.pageNumbers {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pageNumbers li {
+  padding: 10px;
+  border: 1px solid white;
+  cursor: pointer;
+  
+}
+.pageNumbers li:hover{
+  color:#004080
+}
+
+.pageNumbers li.active {
+  background-color: white;
+  color: blue;
+  text-decoration: underline;
+}
+
+.pageNumbers li button {
+  /* background-color: #004080; */
+  border: none;
+  border-radius: 2px;
+  color:black;
+  text-decoration: underline;
+  /* font-size: 1.5rem; */
+  cursor: pointer;
+}
+.pageNumbers li button:hover {
+  /* background-color: white; */
+  color:#004080;
+}
+.pageNumbers li button:focus {
+  outline: none;
+}
+
+.loadmore {
+  padding: 1rem;
+  background-color: transparent;
+
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid white;
+  cursor: pointer;
+}
