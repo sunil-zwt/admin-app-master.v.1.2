@@ -27,7 +27,11 @@
     max-width: 100%;
     border-radius: 5px;
 }
-
+label{
+    font-weight: 700;
+    font-size: 18px;
+    padding: 2px;
+}
 .input-text {
     display: flex;
     flex-direction: column;

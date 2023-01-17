@@ -3,6 +3,8 @@ import "../css/login.css";
 import image from "../images/login.jpg"
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"
+import Sipnner from "../Component/Sipnner";
+import Dashboard from "./Dashboard";
 
 function Login({token,setToken}) {
   // const userRef = useRef()
@@ -12,6 +14,7 @@ function Login({token,setToken}) {
     username: "",
     password: "",
   });
+  const [loading,setLoading]= useState(true)
 
   const [errMsg, setErrMsg] = useState("");
 
@@ -32,7 +35,7 @@ function Login({token,setToken}) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    // setLoading(false)
     let response = axios("https://fakestoreapi.com/auth/login", {
       method: "POST",
       data: {
@@ -45,17 +48,22 @@ function Login({token,setToken}) {
         const accessToken = res?.data?.token;
         setToken(accessToken);
         localStorage.setItem("userToken", accessToken);
-        
+        setLoading(false)
+      navigate("/")
       })
       .catch((err) => {
         if (!err?.response) {
           setErrMsg("No Server Response");
+          setLoading(true)
         } else if (err.response.data?.status === 400) {
           setErrMsg("Missing Username or Password");
+          setLoading(true)
         } else if (err.response.data?.status === 401) {
           setErrMsg("Unauthorized");
+          setLoading(true)
         } else {
           setErrMsg("Login Failed");
+          setLoading(true)
         }
       });
     setInput({
@@ -95,9 +103,10 @@ function Login({token,setToken}) {
           </div>
         </div>
         {errMsg && <small>{errMsg}</small>}
-        <button onClick={handleLogin} className="login-btn"> <Link to="/">Login</Link></button>
+        <button onClick={handleLogin} className="login-btn">Login</button>
+        
       </form>
-    
+   
     </div>
   );
 }

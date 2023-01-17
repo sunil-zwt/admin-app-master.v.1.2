@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import { BrowserRouter, Route, Routes} from "react-router-dom";
 // import Navbar from "./Navbar";
 import "../css/product.css";
+import * as FaIcons from "react-icons/fa";
 // import AddProduct from "./AddProduct";
 // import DeleteProduct from "./DeleteProduct";
 import Header from "../Component/Header";
@@ -14,15 +15,15 @@ import { Outlet } from "react-router-dom";
 
 const renderData = (data) => {
     return (
-        <div className="product-container">
+        <>
 
 
             <table >
                 <thead>
                     <tr>
 
-                        <th>Product</th>
-                        <th>category</th>
+                        <th >Product</th>
+                        <th >category</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
@@ -35,18 +36,18 @@ const renderData = (data) => {
                                     <td className="product">
                                         {/* <div className="product"> */}
                                         <img src={product.image} className="card-img" />
-                                        <h6>{product.title}</h6>
+                                        <span>{product.title}</span>
                                         {/* </div> */}
 
 
                                     </td>
-                                    <td>{`${product.category}`}</td>
-                                    <td>{` ${"$" + product.price}`}</td>
+                                    <td className="category">{`${product.category}`}</td>
+                                    <td className="price">{` ${"$" + product.price}`}</td>
                                     {/* <DeleteProduct data={data}/> */}
 
 
 
-                                    <td><Button product={product}  /></td>
+                                    <td ><Button product={product}  /></td>
 
                                 </tr>
                             );
@@ -54,7 +55,7 @@ const renderData = (data) => {
                 </tbody>
             </table>
 
-        </div>
+        </>
 
     );
 };
@@ -164,28 +165,27 @@ function Product({ children }) {
 
                 <>
                     {renderData(currentItems)}
+                    <div >
                     <ul className="pageNumbers">
                         <li >
-                            <button
-                                onClick={handlePrevbtn}
-                                disabled={currentPage == pages[0] ? true : false}
-                            >
-                                Prev
-                            </button>
+                           
+                             <FaIcons.FaAngleDoubleLeft  onClick={handlePrevbtn}
+                                disabled={currentPage == pages[0] ? true : false} />  
+                           
                         </li>
                         {pageDecrementBtn}
                         {renderPageNumbers}
                         {pageIncrementBtn}
 
                         <li>
-                            <button
-                                onClick={handleNextbtn}
-                                disabled={currentPage === pages[pages.length - 1] ? true : false}
-                            >
-                                Next
-                            </button>
+                            
+                              <FaIcons.FaAngleDoubleRight   onClick={handleNextbtn}
+                                disabled={currentPage === pages[pages.length - 1] ? true : false}/>
+                           
                         </li>
                     </ul>
+                    </div>
+                   
 
                 </>
 

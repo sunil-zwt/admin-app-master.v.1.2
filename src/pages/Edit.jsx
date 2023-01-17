@@ -52,7 +52,7 @@ function Edit() {
     }   
     return (
         <div className='edit-box'>
-            <form>
+            <form className='edit-form'>
                 <div className='add-input' >
                     <label>Title:</label>
                     <input type={'text'} name="title" value={input.title} onChange={handleInput} />

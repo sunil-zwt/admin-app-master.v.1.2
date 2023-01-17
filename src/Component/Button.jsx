@@ -1,6 +1,7 @@
 import React from 'react'
 import * as BsIcons from "react-icons/bs";
 import { Link, Outlet, useNavigate } from 'react-router-dom'
+import "../css/product.css"
 // import { useLocation } from 'react-router-dom'
 function Button(props) {
   const navigate = useNavigate()
@@ -21,15 +22,15 @@ function Button(props) {
       return data.id !== key.id
     })
     console.log(_product);
-    localStorage.setItem('dataKey',JSON.stringify(_product))
+    localStorage.setItem('dataKey', JSON.stringify(_product))
   }
   return (
-    <div className='action-btn'>
-      <button className='edit-btn' onClick={() =>
+    <div className='action-container'>
+      <BsIcons.BsPencilSquare className='edit-btn' onClick={() =>
         navigate("/edit", { state: props.product })
-      }><BsIcons.BsPencilSquare /></button>
-      <button className='delete-btn'
-      ><BsIcons.BsTrashFill onClick={handleDelete} ></BsIcons.BsTrashFill></button>
+      } />
+
+      <BsIcons.BsTrashFill className='delete-btn' onClick={handleDelete} ></BsIcons.BsTrashFill>
     </div>
   )
 }
